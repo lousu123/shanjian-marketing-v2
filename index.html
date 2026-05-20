@@ -8,97 +8,265 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Ma+Shan+Zheng&display=swap');
 
 :root {
-  --iron: #2D1B0E; --irondark: #1A0E06;
-  --fire: #CC4A20; --fireglow: #E8672A; --ember: #F4A030;
-  --forest: #2A4A3A; --pine: #3D6B4F; --moss: #6B8F71;
-  --mist: #E8EDE0; --snow: #F0F2E8; --wood: #C4A882;
-  --amber: #D4A050; --gold: #E8C060;
-  --text: #2A1F18; --textlight: #7A6A5A;
+  --iron: #2D1B0E;
+  --irondark: #1A0E06;
+  --fire: #CC4A20;
+  --fireglow: #E8672A;
+  --ember: #F4A030;
+  --forest: #2A4A3A;
+  --pine: #3D6B4F;
+  --moss: #6B8F71;
+  --mist: #E8EDE0;
+  --snow: #F0F2E8;
+  --wood: #C4A882;
+  --amber: #D4A050;
+  --gold: #E8C060;
+  --text: #2A1F18;
+  --textlight: #7A6A5A;
 }
+
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Noto Sans SC',sans-serif;background:var(--mist);color:var(--text);overflow-x:hidden}
+body{
+  font-family:'Noto Sans SC',sans-serif;
+  background:var(--mist);
+  color:var(--text);
+  overflow-x:hidden;
+}
 
 /* ===== HERO ===== */
-.hero{position:relative;height:100vh;min-height:650px;display:flex;align-items:center;justify-content:center;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background:url('https://s3plus.sankuai.com/mzk-emergency-plan/rhino/1779263757836_b529924f.png') center/cover no-repeat;transform:scale(1.05);animation:heroParallax 20s ease infinite alternate}
-@keyframes heroParallax{0%{transform:scale(1.05) translate(0,0)}100%{transform:scale(1.12) translate(-10px,-15px)}}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,14,6,0.7) 0%,rgba(45,27,14,0.55) 30%,rgba(42,74,58,0.45) 60%,rgba(42,74,58,0.65) 100%)}
+.hero{
+  position:relative;height:100vh;min-height:650px;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:url('https://s3plus.sankuai.com/mzk-emergency-plan/rhino/1779263757836_b529924f.png') center/cover no-repeat;
+  transform:scale(1.05);
+  animation:heroParallax 20s ease infinite alternate;
+}
+@keyframes heroParallax{
+  0%{transform:scale(1.05) translate(0,0)}
+  100%{transform:scale(1.12) translate(-10px,-15px)}
+}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(
+    180deg,
+    rgba(26,14,6,0.75) 0%,
+    rgba(45,27,14,0.55) 30%,
+    rgba(42,74,58,0.45) 60%,
+    rgba(42,74,58,0.65) 100%
+  );
+}
 .hero-content{position:relative;z-index:2;text-align:center;padding:2rem;max-width:900px}
-.hero-badge{display:inline-block;background:rgba(204,74,32,0.2);border:1px solid rgba(204,74,32,0.4);color:var(--ember);padding:0.3rem 1.5rem;border-radius:20px;font-size:0.75rem;letter-spacing:4px;margin-bottom:1.5rem;backdrop-filter:blur(6px);animation:badgeGlow 3s ease-in-out infinite}
+
+.hero-badge{
+  display:inline-block;
+  background:rgba(204,74,32,0.2);
+  border:1px solid rgba(204,74,32,0.4);
+  color:var(--ember);
+  padding:0.3rem 1.5rem;
+  border-radius:20px;
+  font-size:0.75rem;
+  letter-spacing:4px;
+  margin-bottom:1.5rem;
+  backdrop-filter:blur(6px);
+  animation:badgeGlow 3s ease-in-out infinite;
+}
 @keyframes badgeGlow{0%,100%{box-shadow:0 0 15px rgba(204,74,32,0.1)}50%{box-shadow:0 0 25px rgba(204,74,32,0.25)}}
-.hero-title{font-family:'Ma Shan Zheng',cursive;font-size:clamp(3rem,8vw,6.5rem);color:var(--snow);text-shadow:0 4px 40px rgba(0,0,0,0.5),0 2px 10px rgba(204,74,32,0.3);margin-bottom:0.5rem;letter-spacing:8px;line-height:1.2}
+
+.hero-title{
+  font-family:'Ma Shan Zheng',cursive;
+  font-size:clamp(3rem,8vw,6.5rem);
+  color:var(--snow);
+  text-shadow:0 4px 40px rgba(0,0,0,0.5),0 2px 10px rgba(204,74,32,0.3);
+  margin-bottom:0.5rem;
+  letter-spacing:8px;
+  line-height:1.2;
+}
 .hero-title .fire-char{display:inline-block;animation:fireDance 2s ease-in-out infinite}
 @keyframes fireDance{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 .hero-title .forest-char{display:inline-block;animation:forestSway 3s ease-in-out infinite}
 @keyframes forestSway{0%,100%{transform:rotate(-1deg)}50%{transform:rotate(1deg)}}
-.hero-sub{font-size:clamp(0.9rem,2vw,1.4rem);color:var(--wood);font-weight:300;letter-spacing:6px;margin-bottom:1.5rem;text-shadow:0 2px 15px rgba(0,0,0,0.3)}
+
+.hero-sub{
+  font-size:clamp(0.9rem,2vw,1.4rem);
+  color:var(--wood);
+  font-weight:300;
+  letter-spacing:6px;
+  margin-bottom:1.5rem;
+  text-shadow:0 2px 15px rgba(0,0,0,0.3);
+}
 .hero-sub .divider-char{color:var(--fire);margin:0 8px}
-.hero-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
-.hero-tag{padding:5px 16px;border-radius:16px;font-size:0.7rem;background:rgba(240,242,232,0.1);backdrop-filter:blur(4px);border:1px solid rgba(240,242,232,0.15);color:var(--snow);letter-spacing:1px}
+
+.hero-tags{
+  display:flex;flex-wrap:wrap;gap:8px;
+  justify-content:center;
+}
+.hero-tag{
+  padding:5px 16px;
+  border-radius:16px;
+  font-size:0.7rem;
+  background:rgba(240,242,232,0.1);
+  backdrop-filter:blur(4px);
+  border:1px solid rgba(240,242,232,0.15);
+  color:var(--snow);
+  letter-spacing:1px;
+}
 .hero-tag.fire{background:rgba(204,74,32,0.2);border-color:rgba(204,74,32,0.3)}
 .hero-tag.forest{background:rgba(42,74,58,0.3);border-color:rgba(107,143,113,0.3)}
 
-.fire-particle{position:absolute;width:4px;height:4px;border-radius:50%;background:var(--ember);opacity:0;animation:fireRise linear infinite}
-@keyframes fireRise{0%{transform:translateY(0) scale(0);opacity:0.6}50%{opacity:0.3}100%{transform:translateY(-200px) scale(2);opacity:0}}
-.leaf-particle{position:absolute;font-size:14px;opacity:0;animation:leafFall linear infinite}
-@keyframes leafFall{0%{transform:translateY(-20px) rotate(0deg);opacity:0.4}50%{opacity:0.2}100%{transform:translateY(100vh) rotate(360deg);opacity:0}}
-.scroll-indicator{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:2;text-align:center;color:var(--snow);opacity:0.6;animation:bounceDown 2s ease-in-out infinite;cursor:pointer}
+.fire-particle{
+  position:absolute;width:4px;height:4px;
+  border-radius:50%;opacity:0;
+  animation:fireRise linear infinite;
+}
+@keyframes fireRise{
+  0%{transform:translateY(0) scale(0);opacity:0.6}
+  50%{opacity:0.3}
+  100%{transform:translateY(-200px) scale(2);opacity:0}
+}
+.leaf-particle{
+  position:absolute;font-size:14px;opacity:0;
+  animation:leafFall linear infinite;
+}
+@keyframes leafFall{
+  0%{transform:translateY(-20px) rotate(0deg);opacity:0.4}
+  50%{opacity:0.2}
+  100%{transform:translateY(100vh) rotate(360deg);opacity:0}
+}
+.scroll-indicator{
+  position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
+  z-index:2;text-align:center;color:var(--snow);opacity:0.6;
+  animation:bounceDown 2s ease-in-out infinite;
+  cursor:pointer;
+}
 @keyframes bounceDown{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)}}
 .scroll-indicator .arrow{font-size:1.5rem}
 .scroll-indicator .text{font-size:0.6rem;letter-spacing:2px;margin-top:2px}
 
 /* ===== NAV ===== */
-nav{position:sticky;top:0;z-index:100;background:rgba(45,27,14,0.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(204,74,32,0.15);padding:0 12px}
-.nav-inner{max-width:1060px;margin:0 auto;display:flex;align-items:center;overflow-x:auto;gap:2px;scrollbar-width:none}
+nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(45,27,14,0.95);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(204,74,32,0.15);
+  padding:0 12px;
+}
+.nav-inner{
+  max-width:1000px;margin:0 auto;
+  display:flex;align-items:center;
+  overflow-x:auto;gap:4px;
+  scrollbar-width:none;
+}
 .nav-inner::-webkit-scrollbar{display:none}
-.nav-item{flex-shrink:0;padding:10px 11px;font-size:0.65rem;color:var(--wood);text-decoration:none;transition:all 0.3s;white-space:nowrap;border-bottom:2px solid transparent;cursor:pointer}
+.nav-item{
+  flex-shrink:0;padding:10px 14px;
+  font-size:0.69rem;color:var(--wood);
+  text-decoration:none;transition:all 0.3s;
+  white-space:nowrap;
+  border-bottom:2px solid transparent;
+  cursor:pointer;
+}
 .nav-item:hover,.nav-item.active{color:var(--ember);border-bottom-color:var(--fire)}
 
 /* ===== SECTIONS ===== */
-.section{max-width:1060px;margin:0 auto;padding:50px 16px}
+.section{
+  max-width:1000px;margin:0 auto;padding:50px 16px;
+}
 .section-header{text-align:center;margin-bottom:36px}
-.section-header .num{font-family:'Ma Shan Zheng',cursive;font-size:2.5rem;color:var(--fire);opacity:0.3;line-height:1;margin-bottom:-8px}
-.section-header h2{font-family:'Noto Serif SC',serif;font-size:1.5rem;color:var(--iron);letter-spacing:4px}
-.section-header .line{width:60px;height:3px;background:linear-gradient(90deg,var(--fire),var(--forest));margin:10px auto 0;border-radius:2px}
+.section-header .num{
+  font-family:'Ma Shan Zheng',cursive;
+  font-size:2.5rem;color:var(--fire);opacity:0.3;
+  line-height:1;margin-bottom:-8px;
+}
+.section-header h2{
+  font-family:'Noto Serif SC',serif;
+  font-size:1.5rem;color:var(--iron);
+  letter-spacing:4px;
+}
+.section-header .line{
+  width:60px;height:3px;
+  background:linear-gradient(90deg,var(--fire),var(--forest));
+  margin:10px auto 0;border-radius:2px;
+}
 
 .card-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.card{background:rgba(255,255,255,0.92);backdrop-filter:blur(8px);border-radius:14px;padding:20px;border:1px solid rgba(196,168,130,0.15);box-shadow:0 2px 20px rgba(45,27,14,0.04);transition:all 0.3s}
+.card{
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(8px);
+  border-radius:14px;padding:20px;
+  border:1px solid rgba(196,168,130,0.15);
+  box-shadow:0 2px 20px rgba(45,27,14,0.04);
+  transition:all 0.3s;
+}
 .card:hover{transform:translateY(-2px);box-shadow:0 6px 30px rgba(45,27,14,0.08)}
 .card.full{grid-column:1/-1}
-.card-title{font-family:'Noto Serif SC',serif;font-size:1rem;color:var(--iron);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.card-title{
+  font-family:'Noto Serif SC',serif;
+  font-size:1rem;color:var(--iron);
+  margin-bottom:10px;
+  display:flex;align-items:center;gap:8px;
+}
 .card-title .icon{font-size:1.2rem}
 
 .table-wrap{overflow-x:auto;margin:8px 0;border-radius:10px;border:1px solid rgba(196,168,130,0.2)}
-table{width:100%;border-collapse:collapse;font-size:0.78rem;min-width:560px}
-th{background:linear-gradient(135deg,var(--iron),var(--forest));color:var(--mist);padding:8px 10px;text-align:left;font-weight:600;white-space:nowrap}
+table{width:100%;border-collapse:collapse;font-size:0.78rem;min-width:520px}
+th{
+  background:linear-gradient(135deg,var(--iron),var(--forest));
+  color:var(--mist);padding:8px 10px;
+  text-align:left;font-weight:600;white-space:nowrap;
+}
 td{padding:7px 10px;border-bottom:1px solid rgba(196,168,130,0.12);color:var(--text)}
 tr:last-child td{border-bottom:none}
 tr:nth-child(even) td{background:rgba(232,237,224,0.3)}
 .price{color:var(--fire);font-weight:700}
 .price-hot{color:#C0392B;font-weight:800}
 
-.hl-box{background:linear-gradient(135deg,rgba(45,27,14,0.03),rgba(42,74,58,0.03));border-left:3px solid var(--ember);border-radius:0 10px 10px 0;padding:12px 16px;margin:10px 0;font-size:0.82rem}
+.hl-box{
+  background:linear-gradient(135deg,rgba(45,27,14,0.03),rgba(42,74,58,0.03));
+  border-left:3px solid var(--ember);
+  border-radius:0 10px 10px 0;
+  padding:12px 16px;margin:10px 0;
+  font-size:0.82rem;
+}
 .hl-box strong{color:var(--iron)}
 
 .feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:8px 0}
-.feat-item{padding:14px 12px;background:linear-gradient(135deg,rgba(42,74,58,0.03),rgba(204,74,32,0.03));border-radius:10px;text-align:center;border:1px solid rgba(196,168,130,0.1)}
+.feat-item{
+  padding:14px 12px;
+  background:linear-gradient(135deg,rgba(42,74,58,0.03),rgba(204,74,32,0.03));
+  border-radius:10px;text-align:center;
+  border:1px solid rgba(196,168,130,0.1);
+}
 .feat-item .icon{font-size:1.5rem}
 .feat-item .title{font-weight:700;font-size:0.8rem;color:var(--iron);margin:3px 0}
 .feat-item .desc{font-size:0.7rem;color:var(--textlight)}
 
 .kpi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0}
-.kpi-item{text-align:center;padding:14px 6px;background:linear-gradient(135deg,var(--mist),rgba(255,255,255,0.8));border-radius:10px;border:1px solid rgba(196,168,130,0.12);transition:transform 0.3s}
+.kpi-item{
+  text-align:center;padding:14px 6px;
+  background:linear-gradient(135deg,var(--mist),rgba(255,255,255,0.8));
+  border-radius:10px;border:1px solid rgba(196,168,130,0.12);
+  transition:transform 0.3s;
+}
 .kpi-item:hover{transform:translateY(-3px)}
 .kpi-item .num{font-size:1.1rem;font-weight:800;color:var(--forest)}
 .kpi-item .label{font-size:0.62rem;color:var(--textlight);margin-top:2px;letter-spacing:0.5px}
 
 .phase-list{display:grid;gap:8px;margin:8px 0}
-.phase-row{display:grid;grid-template-columns:75px 1fr;gap:8px;padding:10px 12px;border-radius:8px;font-size:0.78rem;align-items:start}
+.phase-row{
+  display:grid;grid-template-columns:70px 1fr;gap:8px;
+  padding:10px 12px;border-radius:8px;font-size:0.78rem;align-items:start;
+}
 .phase-row.p1{background:linear-gradient(135deg,rgba(45,27,14,0.04),rgba(196,168,130,0.04))}
 .phase-row.p2{background:linear-gradient(135deg,rgba(204,74,32,0.06),rgba(244,160,48,0.04))}
 .phase-row.p3{background:linear-gradient(135deg,rgba(42,74,58,0.06),rgba(107,143,113,0.04))}
-.phase-row .tag{font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:5px;text-align:center}
+.phase-row .tag{
+  font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:5px;text-align:center;
+}
 .phase-row.p1 .tag{background:rgba(196,168,130,0.2);color:var(--iron)}
 .phase-row.p2 .tag{background:rgba(204,74,32,0.15);color:var(--fire)}
 .phase-row.p3 .tag{background:rgba(42,74,58,0.15);color:var(--forest)}
@@ -106,11 +274,22 @@ tr:nth-child(even) td{background:rgba(232,237,224,0.3)}
 .phase-row .desc sm{font-size:0.65rem;color:var(--textlight);display:block;margin-top:2px}
 
 .budget-list{display:grid;gap:4px;margin:8px 0}
-.budget-row{display:flex;justify-content:space-between;padding:6px 10px;background:rgba(232,237,224,0.3);border-radius:6px;font-size:0.75rem}
+.budget-row{
+  display:flex;justify-content:space-between;
+  padding:6px 10px;background:rgba(232,237,224,0.3);border-radius:6px;font-size:0.75rem;
+}
 .budget-row.total{background:rgba(45,27,14,0.04);font-weight:700;border:1px solid rgba(204,74,32,0.15)}
+.budget-row.sub{font-size:0.7rem;color:var(--textlight);padding:4px 10px 4px 20px}
 
-.footer{text-align:center;padding:30px 16px 20px;background:linear-gradient(135deg,var(--iron),var(--irondark));color:var(--snow);margin-top:20px}
-.footer .motto{font-family:'Ma Shan Zheng',cursive;font-size:1.6rem;color:var(--ember);margin-bottom:8px}
+.footer{
+  text-align:center;padding:30px 16px 20px;
+  background:linear-gradient(135deg,var(--iron),var(--irondark));
+  color:var(--snow);margin-top:20px;
+}
+.footer .motto{
+  font-family:'Ma Shan Zheng',cursive;
+  font-size:1.6rem;color:var(--ember);margin-bottom:8px;
+}
 .footer .meta{font-size:0.65rem;color:var(--wood);opacity:0.6}
 
 .section-divider{text-align:center;margin:12px 0;font-size:16px;opacity:0.25;letter-spacing:6px}
@@ -119,39 +298,46 @@ tr:nth-child(even) td{background:rgba(232,237,224,0.3)}
 .tag.g{background:rgba(42,74,58,0.1);color:var(--forest)}
 .tag.r{background:rgba(204,74,32,0.1);color:var(--fire)}
 .tag.y{background:rgba(212,160,80,0.15);color:var(--amber)}
+.tag.gg{background:rgba(107,143,113,0.15);color:var(--pine)}
 
 ul,ol{padding-left:16px;margin:4px 0 8px}
-li{font-size:0.82rem;margin-bottom:4px;color:var(--text)}
+li{font-size:0.82rem;margin-bottom:3px;color:var(--text)}
+
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:6px}
 .grid-item{background:rgba(232,237,224,0.3);padding:8px 10px;border-radius:6px}
 .grid-item .label{font-size:0.65rem;color:var(--textlight)}
 .grid-item .value{font-size:0.82rem;font-weight:700;color:var(--text);margin-top:1px}
 
-.strategy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:8px 0}
-.strategy-item{text-align:center;padding:16px 8px;background:linear-gradient(135deg,rgba(42,74,58,0.02),rgba(204,74,32,0.02));border-radius:10px;border:1px solid rgba(196,168,130,0.1)}
-.strategy-item .big{font-size:1.8rem;margin-bottom:2px}
-.strategy-item .t{font-weight:700;font-size:0.85rem;color:var(--iron)}
-.strategy-item .d{font-size:0.7rem;color:var(--textlight);margin-top:2px}
+.persona-box{
+  background:linear-gradient(135deg,rgba(42,74,58,0.04),rgba(45,27,14,0.04));
+  border-radius:10px;padding:14px 16px;margin:8px 0;
+  border:1px solid rgba(196,168,130,0.12);
+}
+.persona-box .p-title{font-weight:700;color:var(--iron);font-size:0.85rem;margin-bottom:4px}
+.persona-box .p-desc{font-size:0.75rem;color:var(--textlight);line-height:1.6}
 
-.timeline{display:grid;gap:4px;margin:8px 0}
-.tl-item{display:flex;gap:10px;padding:6px 8px;border-radius:6px;font-size:0.75rem;background:rgba(232,237,224,0.2)}
-.tl-item .day{color:var(--forest);font-weight:700;flex-shrink:0;width:45px}
+.speech-box{
+  background:#fcf8f3;padding:12px 16px;border-radius:10px;
+  margin:8px 0;font-size:0.75rem;line-height:1.8;
+  border-left:3px solid var(--fire);
+}
+.speech-box .sp{color:var(--fire);font-weight:700}
 
 @media(max-width:640px){
   .section{padding:30px 12px}
-  .card-grid,.feat-grid,.grid-2{grid-template-columns:1fr}
-  .kpi-grid,.strategy-grid{grid-template-columns:repeat(3,1fr);gap:4px}
+  .card-grid,.grid-2{grid-template-columns:1fr}
+  .feat-grid{grid-template-columns:1fr 1fr;gap:6px}
+  .kpi-grid{grid-template-columns:repeat(3,1fr);gap:4px}
   .kpi-item .num{font-size:0.95rem}
   .hero-title{letter-spacing:4px}
   table{font-size:0.7rem;min-width:500px}
   th,td{padding:5px 7px}
-  .phase-row{grid-template-columns:65px 1fr}
 }
 </style>
 </head>
 <body>
 
-<!-- HERO -->
+<!-- ===== HERO ===== -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-overlay"></div>
@@ -179,470 +365,677 @@ li{font-size:0.82rem;margin-bottom:4px;color:var(--text)}
   </div>
 </section>
 
-<!-- NAV -->
+<!-- ===== NAV ===== -->
 <nav>
   <div class="nav-inner">
-    <a class="nav-item" href="#overview">📋 全景</a>
-    <a class="nav-item" href="#market">📊 市场</a>
-    <a class="nav-item" href="#brand">🏷️ 品牌</a>
-    <a class="nav-item" href="#products">🍖 产品</a>
-    <a class="nav-item" href="#meituan">🔥 团购</a>
-    <a class="nav-item" href="#dianping">⭐ 点评</a>
-    <a class="nav-item" href="#waimai">🛵 外卖</a>
-    <a class="nav-item" href="#douyin">🎬 抖音</a>
-    <a class="nav-item" href="#pos">⚡ 收银</a>
-    <a class="nav-item" href="#private">💬 私域</a>
-    <a class="nav-item" href="#compliance">⚖️ 合规</a>
-    <a class="nav-item" href="#budget">💰 预算</a>
-    <a class="nav-item" href="#kpi">📊 KPI</a>
+    <a class="nav-item active" href="#overview">📋 项目全景</a>
+    <a class="nav-item" href="#market">📊 市场分析</a>
+    <a class="nav-item" href="#products">🍖 产品策略</a>
+    <a class="nav-item" href="#meituan">🔥 美团团购</a>
+    <a class="nav-item" href="#dianping">⭐ 大众点评</a>
+    <a class="nav-item" href="#waimai">🛵 外卖营销</a>
+    <a class="nav-item" href="#douyin">🎬 抖音运营</a>
+    <a class="nav-item" href="#pos">⚡ 智能收银</a>
+    <a class="nav-item" href="#opening">🎉 开业活动</a>
+    <a class="nav-item" href="#private">💬 私域复购</a>
+    <a class="nav-item" href="#kpi">📊 KPI·预算</a>
   </div>
 </nav>
 
-<!-- 1. 项目全景 -->
+<!-- ===== 1. 全景 ===== -->
 <section class="section" id="overview">
-  <div class="section-header"><div class="num">壹</div><h2>项目全景</h2><div class="line"></div></div>
+  <div class="section-header">
+    <div class="num">壹</div>
+    <h2>项目全景</h2>
+    <div class="line"></div>
+  </div>
   <div class="card-grid">
-    <div class="card" style="grid-column:1/-1">
+    <div class="card full">
       <div class="card-title"><span class="icon">🏪</span> 门店档案</div>
       <div class="grid-2">
         <div class="grid-item"><div class="label">店名</div><div class="value">山野间铁锅炖</div></div>
         <div class="grid-item"><div class="label">品类</div><div class="value">东北菜 · 铁锅炖</div></div>
         <div class="grid-item"><div class="label">星级</div><div class="value">暂无（新店）</div></div>
         <div class="grid-item"><div class="label">人均</div><div class="value">¥75-85</div></div>
-        <div class="grid-item"><div class="label">面积</div><div class="value">170㎡（含二楼3包间）</div></div>
-        <div class="grid-item"><div class="label">餐位</div><div class="value">约60-70位（含包间24位）</div></div>
-        <div class="grid-item"><div class="label">位置</div><div class="value">塘沽·杭州道·安顺道贝迪幼儿园东侧</div></div>
-        <div class="grid-item"><div class="label">目标客群</div><div class="value">塘沽居民·家庭聚餐·商务宴请</div></div>
+        <div class="grid-item"><div class="label">面积</div><div class="value">170㎡（含3包间）</div></div>
+        <div class="grid-item"><div class="label">位置</div><div class="value">塘沽杭州道·安顺道贝迪幼儿园东侧</div></div>
+        <div class="grid-item"><div class="label">客群</div><div class="value">居民/家庭聚餐/朋友聚会/宴请</div></div>
+        <div class="grid-item"><div class="label">状态</div><div class="value">装修中</div></div>
       </div>
     </div>
+
     <div class="card full">
-      <div class="strategy-grid">
-        <div class="strategy-item"><div class="big">🔥</div><div class="t">铁锅炖 · 粗犷</div><div class="d">大铁锅柴火灶·明档炖煮·烟火气就是流量</div></div>
-        <div class="strategy-item"><div class="big">🌲</div><div class="t">山野间 · 意境</div><div class="d">原木绿植·暖光吊灯·包间松间/云岫/溪谷</div></div>
-        <div class="strategy-item"><div class="big">📱</div><div class="t">美团全平台</div><div class="d">团购+点评+外卖+收银+会员一体化运营</div></div>
+      <div class="card-title"><span class="icon">🎯</span> 品牌定位</div>
+      <div style="font-family:'Noto Serif SC',serif;font-size:1.15rem;text-align:center;padding:16px 0;line-height:2.2">
+        <span style="color:var(--fire);font-weight:700">「铁锅炖的粗犷烟火气」</span>聚人气<br>
+        <span style="color:var(--forest);font-weight:700">「山野间的自然意境」</span>做体验<br>
+        <span style="color:var(--amber);font-weight:700">「美团全平台运营」</span>拓流量<br>
+        <span style="color:var(--iron);font-weight:700">「一锅炖尽人间味」</span>留人心
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">🔥</span> 铁锅炖 · 粗犷基因</div>
+      <ul>
+        <li>大铁锅现炖 · 柴火灶热气腾腾 · 明档操作间</li>
+        <li>大块肉大碗酒 · 豪爽待客 · 东北直运食材</li>
+        <li>铁锅咕嘟咕嘟冒泡声就是最好的"背景音乐"</li>
+        <li>穿着粗布围裙的服务员 · 东北腔招呼"来了老弟"</li>
+        <li>灶台铁锅+木柴装饰 · 墙上挂大蒜辣椒玉米棒</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="icon">🌲</span> 山野间 · 意境基因</div>
+      <ul>
+        <li>原木桌椅+绿植墙+暖光吊灯+石子路</li>
+        <li>包间命名：松间🌲、云岫☁️、溪谷🌊</li>
+        <li>墙面用山野手绘壁画+书法题字</li>
+        <li>餐具：粗陶碗+木托盘+竹编垫</li>
+        <li>背景音乐：古琴/笛声+山涧流水声</li>
+      </ul>
+    </div>
+
+    <div class="card full">
+      <div class="card-title"><span class="icon">👤</span> 客群画像（塘沽区域）</div>
+      <div class="persona-box">
+        <div class="p-title">👨‍👩‍👧‍👦 家庭聚餐型（核心人群·40%）</div>
+        <div class="p-desc">周边小区居民（杭州道/工农村/新港），周末带老人孩子吃顿好的，注重性价比和味道。3-5人桌为主，人均¥60-80。</div>
+      </div>
+      <div class="persona-box">
+        <div class="p-title">🍻 朋友聚会型（核心人群·35%）</div>
+        <div class="p-desc">塘沽本地年轻人/上班族，下班后三四好友边炖边聊，喝酒吃肉。注重氛围和拍照打卡，人均¥80-100。</div>
+      </div>
+      <div class="persona-box">
+        <div class="p-title">💼 商务宴请型（增长人群·15%）</div>
+        <div class="p-desc">塘沽开发区企业主/销售，招待客户/同事聚餐，偏爱包间私密性。注重品质和排面，人均¥100-130。</div>
+      </div>
+      <div class="persona-box">
+        <div class="p-title">🎂 生日/节日聚（场景人群·10%）</div>
+        <div class="p-desc">过生日/过节日一群人乐呵，需要仪式感和大桌。美团搜索"聚餐"场景的自然流量。</div>
       </div>
     </div>
   </div>
   <div class="section-divider">🔥 ⟡ 🌲 ⟡ 🍖</div>
 </section>
 
-<!-- 2. 市场分析&竞品 -->
+<!-- ===== 2. 市场分析 ===== -->
 <section class="section" id="market">
-  <div class="section-header"><div class="num">贰</div><h2>市场环境与竞品分析</h2><div class="line"></div></div>
+  <div class="section-header">
+    <div class="num">贰</div>
+    <h2>市场与竞品分析</h2>
+    <div class="line"></div>
+  </div>
   <div class="card-grid">
     <div class="card">
       <div class="card-title"><span class="icon">📊</span> 塘沽铁锅炖市场</div>
       <ul>
-        <li><strong>市场规模：</strong>塘沽区域铁锅炖类约15-20家，暂无头部品牌</li>
-        <li><strong>价格带：</strong>人均¥60-100，主流客单¥70-85</li>
-        <li><strong>痛点：</strong>环境老旧、服务粗放、线上运营弱、评分普遍3.8-4.2</li>
-        <li><strong>机会：</strong>山野风差异化+强线上运营=快速突围</li>
+        <li>塘沽东北菜/铁锅炖品类门店约20-30家</li>
+        <li>人均集中在¥60-90区间，竞争中等</li>
+        <li>头部门店月销团购200-400单，评分4.0-4.5</li>
+        <li>多数门店装修偏传统，缺少"意境感"</li>
+        <li><strong>市场机会：</strong>铁锅炖口味+山野意境 = 差异化优势</li>
       </ul>
     </div>
     <div class="card">
-      <div class="card-title"><span class="icon">🏆</span> 核心竞品</div>
+      <div class="card-title"><span class="icon">🔍</span> 竞品差距分析</div>
+      <table>
+        <tr><th>维度</th><th>竞品平均</th><th>山野间</th></tr>
+        <tr><td>装修风格</td><td>传统东北风</td><td>粗犷+意境融合</td></tr>
+        <tr><td>包间体验</td><td>普通包间</td><td>松间·云岫·溪谷</td></tr>
+        <tr><td>美团运营</td><td>基础入驻</td><td>全平台精细化</td></tr>
+        <tr><td>收银系统</td><td>传统收银</td><td>美团智能版</td></tr>
+        <tr><td>私域运营</td><td>基本没有</td><td>社群+会员+储值</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="icon">💪</span> 核心优势</div>
       <ul>
-        <li>铁锅炖品牌A — 评分4.0·月销100+·环境普通</li>
-        <li>铁锅炖品牌B — 评分3.9·月销80+·老店无装修</li>
-        <li>其他（柴火鱼/灶台鱼）— 品类相近但非直接竞品</li>
-        <li><strong>山野间差异化：</strong>环境碾压+线上全平台领先</li>
+        <li><strong>空间优势：</strong>170㎡+3包间，塘沽铁锅炖中面积靠前</li>
+        <li><strong>视觉优势：</strong>粗犷+意境融合，差异化明显</li>
+        <li><strong>运营优势：</strong>美团全平台+智能收银+私域</li>
+        <li><strong>位置优势：</strong>杭州道成熟社区，周边人口密集</li>
       </ul>
     </div>
-    <div class="card full">
-      <div class="hl-box">
-        <strong>📌 核心判断：</strong>塘沽铁锅炖市场处于"有品类无品牌"阶段。山野间以<strong style="color:var(--fire)">粗犷烟火+山野意境</strong>的双重体验，配合<strong style="color:var(--forest)">美团全平台运营</strong>，有极大机会成为塘沽铁锅炖品类第一。
-      </div>
+    <div class="card">
+      <div class="card-title"><span class="icon">⚠️</span> 挑战与应对</div>
+      <ul>
+        <li><strong>新店无知名度 →</strong> 开业活动+达人探店快速破圈</li>
+        <li><strong>铁锅炖季节性 →</strong> 夏季推小龙虾铁锅炖+夜间外摆</li>
+        <li><strong>周边竞品多 →</strong> 用美团差异化运营+山野间IP</li>
+      </ul>
     </div>
   </div>
   <div class="section-divider">🔥 ⟡ 🌲 ⟡ 🍖</div>
 </section>
 
-<!-- 3. 品牌定位 -->
-<section class="section" id="brand">
-  <div class="section-header"><div class="num">叁</div><h2>品牌定位与核心卖点</h2><div class="line"></div></div>
-  <div class="card-grid">
-    <div class="card full">
-      <div style="text-align:center;padding:10px 0">
-        <div style="font-family:'Ma Shan Zheng',cursive;font-size:2.2rem;color:var(--iron);margin-bottom:8px">山野间铁锅炖</div>
-        <div style="font-size:1rem;color:var(--fire);letter-spacing:4px;margin-bottom:12px">粗犷烟火 · 山野意境 · 一锅炖尽人间味</div>
-      </div>
-      <div class="feat-grid">
-        <div class="feat-item"><div class="icon">🌲</div><div class="title">山野环境</div><div class="desc">原木+绿植+暖光，包间松间/云岫/溪谷</div></div>
-        <div class="feat-item"><div class="icon">🔥</div><div class="title">铁锅现炖</div><div class="desc">明档灶台，大铁锅咕嘟咕嘟冒热气</div></div>
-        <div class="feat-item"><div class="icon">🍖</div><div class="title">东北食材</div><div class="desc">大鹅/排骨/鱼头/羊排，量大料足</div></div>
-        <div class="feat-item"><div class="icon">💵</div><div class="title">人均亲民</div><div class="desc">人均¥75-85，性价比拉满</div></div>
-      </div>
-    </div>
-  </div>
-  <div class="section-divider">🔥 ⟡ 🌲 ⟡ 🍖</div>
-</section>
-
-<!-- 4. 产品定价 -->
+<!-- ===== 3. 产品策略 ===== -->
 <section class="section" id="products">
-  <div class="section-header"><div class="num">肆</div><h2>产品结构与定价策略</h2><div class="line"></div></div>
+  <div class="section-header">
+    <div class="num">叁</div>
+    <h2>产品结构与定价策略</h2>
+    <div class="line"></div>
+  </div>
   <div class="card-grid">
     <div class="card full">
+      <div class="card-title"><span class="icon">📋</span> 完整菜单体系</div>
       <div class="table-wrap">
       <table>
-        <tr><th>层级</th><th>品类</th><th>产品</th><th>定价</th><th>策略</th></tr>
-        <tr><td><strong>🔥 引流</strong></td><td>排骨/鸡</td><td>铁锅炖排骨(小)·铁锅炖土鸡(小)</td><td class="price-hot">¥68-78</td><td>新客尝鲜·低毛利冲量</td></tr>
-        <tr><td><strong>🌟 招牌</strong></td><td>大鹅</td><td>铁锅炖大鹅（山野间必点）</td><td class="price">¥128</td><td>毛利主力·桌桌必点</td></tr>
-        <tr><td><strong>🥇 硬菜</strong></td><td>鱼头/羊排</td><td>铁锅炖鱼头·铁锅焖羊排</td><td class="price">¥158-198</td><td>宴请聚·拉高客单</td></tr>
-        <tr><td><strong>🍚 主食</strong></td><td>贴饼子/花卷</td><td>玉米面贴饼子·花卷·米饭·大碴粥</td><td class="price">¥5-12</td><td>搭售升单</td></tr>
-        <tr><td><strong>🥗 凉菜饮品</strong></td><td>东北凉菜</td><td>大拌菜·皮冻·拉皮·自制酸梅汤·玉米汁</td><td class="price">¥8-22</td><td>丰富菜单·加购</td></tr>
-        <tr><td><strong>🍺 酒水</strong></td><td>白酒/啤酒</td><td>东北小烧·青岛啤酒·自制山楂酒</td><td class="price">¥8-48</td><td>高毛利·聚餐刚需</td></tr>
+        <tr><th>层级</th><th>品类</th><th>产品</th><th>定价</th><th>毛利</th><th>策略</th></tr>
+        <tr><td><span class="tag r">引流</span></td><td>铁锅炖小份</td><td>排骨锅/鸡锅（2-3人）</td><td class="price-hot">¥68-78</td><td>45%</td><td>新客尝鲜·冲销量</td></tr>
+        <tr><td><span class="tag y">招牌</span></td><td>铁锅炖中份</td><td>大鹅锅/筋头巴脑锅（3-4人）</td><td class="price">¥128-158</td><td>55%</td><td>核心毛利·桌桌必点</td></tr>
+        <tr><td><span class="tag g">利润</span></td><td>铁锅炖大份</td><td>鱼头锅/羊排锅（4-6人）</td><td class="price">¥188-228</td><td>60%</td><td>宴请聚·拉客单</td></tr>
+        <tr><td><span class="tag" style="background:rgba(218,165,32,0.1);color:#8B6914;">豪华</span></td><td>铁锅炖全家福</td><td>大鹅+排骨+鱼（6-8人）</td><td class="price">¥328-388</td><td>50%</td><td>包间宴请·冲客单</td></tr>
+        <tr><td><span class="tag gg">搭配</span></td><td>主食</td><td>玉米贴饼子/花卷/米饭/大碴粥</td><td>¥5-12</td><td>70%</td><td>搭售升单</td></tr>
+        <tr><td><span class="tag gg">凉菜</span></td><td>东北经典</td><td>大拌菜/皮冻/蘸酱菜/拉皮/酱骨棒</td><td>¥8-28</td><td>65%</td><td>丰富菜单·加购</td></tr>
+        <tr><td><span class="tag gg">饮品</span></td><td>自制</td><td>酸梅汤/玉米汁/豆浆/大窑</td><td>¥6-18</td><td>75%</td><td>高毛利搭售</td></tr>
       </table>
       </div>
     </div>
-    <div class="card">
-      <div class="card-title"><span class="icon">🎯</span> 套餐设计（美团/抖音）</div>
-      <div class="table-wrap">
-      <table>
-        <tr><th>套餐</th><th>内容</th><th>原价</th><th>售价</th></tr>
-        <tr><td>🔥 新客尝鲜2人</td><td>铁锅炖排骨小份+贴饼子+凉菜+饮品×2</td><td>¥136</td><td class="price-hot">¥68</td></tr>
-        <tr><td>🍖 山野4人欢聚</td><td>铁锅炖大鹅+贴饼子+凉菜×2+饮品×4</td><td>¥306</td><td class="price">¥188</td></tr>
-        <tr><td>🏔️ 6-8人宴请</td><td>铁锅炖鱼头+炖排骨+凉菜×3+主食+饮品×6</td><td>¥568</td><td class="price">¥368</td></tr>
-        <tr><td>💳 代金券</td><td>满100减10·全场通用</td><td>—</td><td class="price">¥1</td></tr>
-      </table>
+
+    <div class="card full">
+      <div class="card-title"><span class="icon">📐</span> 定价策略</div>
+      <div class="grid-2">
+        <div class="grid-item">
+          <div class="label">🪝 引流钩子</div>
+          <div class="value">¥68尝鲜双人餐（原价¥136，打5折）</div>
+          <div style="font-size:0.65rem;color:var(--textlight);margin-top:2px">目的：让新客敢进来·用低门槛换高体验</div>
+        </div>
+        <div class="grid-item">
+          <div class="label">🏆 利润核心</div>
+          <div class="value">¥128-158大鹅/筋头巴脑（毛利55%）</div>
+          <div style="font-size:0.65rem;color:var(--textlight);margin-top:2px">目的：单品毛利最高·爆款主推</div>
+        </div>
+        <div class="grid-item">
+          <div class="label">📈 客单拉升</div>
+          <div class="value">加菜+饮品+主食（人均从¥68→¥80+）</div>
+          <div style="font-size:0.65rem;color:var(--textlight);margin-top:2px">目的：每个顾客多消费¥15-25</div>
+        </div>
+        <div class="grid-item">
+          <div class="label">🍺 酒水毛利</div>
+          <div class="value">自制饮品+东北特色饮料+散装白酒</div>
+          <div style="font-size:0.65rem;color:var(--textlight);margin-top:2px">目的：酒水是餐饮最高毛利品类</div>
+        </div>
       </div>
     </div>
-    <div class="card">
-      <div class="card-title"><span class="icon">📈</span> 定价策略</div>
-      <ul>
-        <li><strong>引流价：</strong>¥68尝鲜→到店升单至人均¥80+</li>
-        <li><strong>价格锚点：</strong>¥198鱼头做锚点→¥128大鹅显得值</li>
-        <li><strong>套餐毛利：</strong>引流套餐40%·主力套餐55%·酒水70%</li>
-        <li><strong>非餐时段：</strong>下午茶推炖菜套餐（14-17点8折）</li>
-      </ul>
+
+    <div class="card full">
+      <div class="card-title"><span class="icon">🎫</span> 全平台团购套餐矩阵</div>
+      <div class="table-wrap">
+      <table>
+        <tr><th>平台</th><th>套餐名</th><th>内容</th><th>原价</th><th>售价</th><th>折扣</th></tr>
+        <tr><td>美团</td><td>🔥 新客尝鲜2人餐</td><td>铁锅炖排骨小份+贴饼子+凉菜拼盘+饮品×2</td><td>¥136</td><td class="price-hot">¥68</td><td>5折</td></tr>
+        <tr><td>美团</td><td>🍖 山野4人欢聚餐</td><td>铁锅炖大鹅中份+贴饼子×4+凉菜×2+饮品×4</td><td>¥326</td><td class="price">¥188</td><td>5.8折</td></tr>
+        <tr><td>美团</td><td>🏔️ 6-8人宴请套餐</td><td>铁锅炖鱼头+排骨小份+凉菜×3+饮品×6+贴饼子</td><td>¥548</td><td class="price">¥368</td><td>6.7折</td></tr>
+        <tr><td>美团</td><td>💳 100-10代金券</td><td>全场通用·每桌限1张</td><td>—</td><td class="price">¥1</td><td>—</td></tr>
+        <tr><td>抖音</td><td>🔥 新客尝鲜2人餐</td><td>同美团（抖音用户群体可覆盖年轻客流）</td><td>¥136</td><td class="price-hot">¥68</td><td>5折</td></tr>
+        <tr><td>抖音</td><td>🍻 2-3人啤酒套餐</td><td>铁锅炖鸡小份+凉菜×2+啤酒×6瓶</td><td>¥188</td><td class="price">¥98</td><td>5.2折</td></tr>
+        <tr><td>点评</td><td>💎 收藏打卡专属</td><td>收藏+打卡→送自制酸梅汤/玉米汁</td><td>—</td><td class="price">免费</td><td>—</td></tr>
+      </table>
+      </div>
+      <div class="hl-box">
+        <strong>💡 套餐设计逻辑：</strong><br>
+        ① ¥68尝鲜价引流入店 → 到店后推大鹅/鱼头升单至人均¥80+<br>
+        ② 套餐命名带"山野"IP（新客尝鲜、山野欢聚、松间宴请）<br>
+        ③ 抖音+美团双平台同步上架·覆盖不同用户群<br>
+        ④ 收藏打卡不花钱·但能带来好评和自然流量
+      </div>
     </div>
   </div>
   <div class="section-divider">🔥 ⟡ 🌲 ⟡ 🍖</div>
 </section>
 
-<!-- 5. 美团团购 -->
+<!-- ===== 4. 美团团购 ===== -->
 <section class="section" id="meituan">
-  <div class="section-header"><div class="num">伍</div><h2>美团团购运营方案</h2><div class="line"></div></div>
+  <div class="section-header">
+    <div class="num">肆</div>
+    <h2>美团团购运营策略</h2>
+    <div class="line"></div>
+  </div>
   <div class="card-grid">
     <div class="card full">
       <div class="table-wrap">
       <table>
-        <tr><th>阶段</th><th>动作</th><th>目标</th></tr>
-        <tr><td><strong>🏗️ 上线期</strong><br><span style="font-size:0.65rem;color:var(--textlight)">D1-D7</span></td>
-          <td>① 上线¥68尝鲜2人餐+¥1团100-10券+收藏打卡送饮品<br>② 头图用铁锅炖冒热气实拍/15秒短视频<br>③ 门店页完善：环境图5张+菜品图8张+视频2条</td>
-          <td>首批50单核销</td></tr>
-        <tr><td><strong>🚀 冲量期</strong><br><span style="font-size:0.65rem;color:var(--textlight)">D8-D30</span></td>
-          <td>① 报名新店流量扶持计划<br>② 每天引导5-8个真实评价<br>③ 每周更新1个限时秒杀活动<br>④ 开通美团商户通·定向投放（塘沽/开发区）</td>
-          <td>冲塘沽铁锅炖<br>TOP5</td></tr>
-        <tr><td><strong>🌟 稳定期</strong><br><span style="font-size:0.65rem;color:var(--textlight)">D31+</span></td>
-          <td>① 商户通日均¥50-80投放<br>② 保持每月10-15条真实评价<br>③ 每月更新1个套餐/活动保持热度</td>
-          <td>评分4.3+<br>月销300+</td></tr>
+        <tr><th>阶段</th><th>时间</th><th>核心动作</th><th>目标</th></tr>
+        <tr>
+          <td><strong>🏗️ 筹备期</strong></td>
+          <td>D-14~D0</td>
+          <td>
+            · 完成美团入驻+团购后台配置<br>
+            · 拍摄专业菜品图/环境图（至少30张）<br>
+            · 录制铁锅炖咕嘟冒泡的视频物料<br>
+            · 设置¥68尝鲜2人餐+¥188欢聚4人餐<br>
+            · 门店头图用铁锅热气腾腾动图
+          </td>
+          <td>完成上线<br>准备就绪</td>
+        </tr>
+        <tr>
+          <td><strong>🔥 引爆期</strong></td>
+          <td>D1-D14</td>
+          <td>
+            · 参"新店特惠"流量扶持计划<br>
+            · 开业当天投放商户通¥100/天<br>
+            · 每2天更新1条图文评价（前10条最重要）<br>
+            · 定向塘沽/开发区投流（25-50岁·聚餐场景）<br>
+            · 主图视频轮换：铁锅冒泡→贴饼子→开锅瞬间
+          </td>
+          <td>首批100单<br>评分4.0+</td>
+        </tr>
+        <tr>
+          <td><strong>🚀 冲榜期</strong></td>
+          <td>D15-D30</td>
+          <td>
+            · 上线¥1团100-10代金券（锁客神器）<br>
+            · 商户通日均¥80（午11点+晚17点加价）<br>
+            · 每周1个限时秒杀活动（如周三五折）<br>
+            · 引导收藏打卡持续做·保持好评节奏
+          </td>
+          <td>冲塘沽东北菜<br>热门TOP5</td>
+        </tr>
+        <tr>
+          <td><strong>🌟 稳定期</strong></td>
+          <td>D31+</td>
+          <td>
+            · 商户通日均¥50（精准定向已有客群）<br>
+            · 每月2-3次新品套餐更新保持新鲜感<br>
+            · 维持每月10-15条评价增长速度<br>
+            · 套餐灵活调价（稳定后逐步提价至7-7.5折）
+          </td>
+          <td>评分4.3+<br>月销团购300+</td>
+        </tr>
       </table>
       </div>
     </div>
-    <div class="card full">
-      <div class="hl-box">
-        <strong>💡 团购运营核心要点：</strong><br>
-        <strong>① 头图即流量：</strong>铁锅"咕嘟咕嘟"冒热气视频/动图→点击率高40%<br>
-        <strong>② 升单设计：</strong>¥68引流→到店推荐大鹅·鱼头→人均拉到¥80+<br>
-        <strong>③ 套餐命名：</strong>融入"山野"元素→「山野寻味2人餐」「松间欢聚4人餐」<br>
-        <strong>④ 核销话术：</strong>"哥/姐，您这个套餐太划算了，要不要加份大鹅？店里的招牌，保证好吃！"<br>
-        <strong>⑤ 好评引导：</strong>结账时口头引导，不说"好评返现"，说"喜欢的话麻烦给个好评，送您一份自制酸梅汤"
-      </div>
+    <div class="card">
+      <div class="card-title"><span class="icon">📸</span> 门店视觉规范</div>
+      <ul>
+        <li><strong>头图：</strong>铁锅炖咕嘟咕嘟冒热气的动图/视频</li>
+        <li><strong>环境图：</strong>山野风包间+原木桌椅+绿植+暖光</li>
+        <li><strong>菜品图：</strong>每道菜特写（用竹编垫/粗陶碗搭配）</li>
+        <li><strong>视频：</strong>15秒"开锅"瞬间·热气腾腾+香味溢出感</li>
+        <li><strong>布局：</strong>首图→环境→菜品→环境→活动页</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="icon">💡</span> 冲榜技巧</div>
+      <ul>
+        <li><strong>核销率关键：</strong>核销率>60%才能上榜</li>
+        <li><strong>收藏量关键：</strong>每天引导50+人收藏门店</li>
+        <li><strong>好评节奏：</strong>前10条好评决定初始评分</li>
+        <li><strong>套餐更新：</strong>每半个月换1个套餐保持活跃</li>
+        <li><strong>营业时间：</strong>11:00-22:00·保证午晚高峰在线</li>
+      </ul>
     </div>
   </div>
   <div class="section-divider">🔥 ⟡ 🌲 ⟡ 🍖</div>
 </section>
 
-<!-- 6. 大众点评 -->
+<!-- ===== 5. 大众点评 ===== -->
 <section class="section" id="dianping">
-  <div class="section-header"><div class="num">陆</div><h2>大众点评运营</h2><div class="line"></div></div>
-  <div class="card-grid">
-    <div class="card">
-      <div class="card-title"><span class="icon">⭐</span> 评价体系</div>
-      <ul>
-        <li><strong>好评引导流程：</strong>结账→"好吃的话麻烦给个五星好评，送您一份自制酸梅汤/玉米汁"</li>
-        <li><strong>差评24h响应：</strong>先道歉→说明改进措施→送代金券邀请再来</li>
-        <li><strong>优质评价：</strong>前50条好评决定初始评分，邀请大桌客人写带图评价</li>
-        <li><strong>评价回复：</strong>每条好评都要回复，带"山野间"品牌语气</li>
-      </ul>
-    </div>
-    <div class="card">
-      <div class="card-title"><span class="icon">📸</span> 门店视觉管理</div>
-      <ul>
-        <li><strong>首图：</strong>铁锅炖特写（咕嘟冒热气·暖光）</li>
-        <li><strong>环境图×5：</strong>大厅·包间（松间/云岫/溪谷）·明档灶台·绿植角落</li>
-        <li><strong>菜品图×8：</strong>大鹅·排骨·鱼头·贴饼子·凉菜·饮品·全家福·细节</li>
-        <li><strong>视频×2：</strong>铁锅炖煮15秒+环境氛围15秒</li>
-        <li><strong>全景VR：</strong>建议开通美团全景探店视频</li>
-      </ul>
-    </div>
-    <div class="card">
-      <div class="card-title"><span class="icon">🏆</span> 榜单冲刺策略</div>
-      <ul>
-        <li><strong>短期（1-3月）：</strong>冲"塘沽东北菜热门榜"</li>
-        <li><strong>中期（3-6月）：</strong>冲"塘沽美食好评榜"</li>
-        <li><strong>长期（6月+）：</strong>冲"滨海新区铁锅炖好评榜"</li>
-        <li><strong>核心指标：</strong>高核销+高评分+高收藏+高活跃</li>
-      </ul>
-    </div>
-    <div class="card">
-      <div class="card-title"><span class="icon">📢</span> 商户通投放</div>
-      <ul>
-        <li><strong>定向：</strong>塘沽城区+开发区+新港（3-5公里）</li>
-        <li><strong>人群：</strong>25-50岁·家庭聚餐/朋友聚会</li>
-        <li><strong>时段：</strong>午11-13点·晚17-20点加大出价</li>
-        <li><strong>日均预算：</strong>¥50-80（稳定期）·冲榜期¥100-150</li>
-      </ul>
-    </div>
+  <div class="section-header">
+    <div class="num">伍</div>
+    <h2>大众点评运营策略</h2>
+    <div class="line"></div>
   </div>
-  <div class="section-divider">🔥 ⟡ 🌲 ⟡ 🍖</div>
-</section>
-
-<!-- 7. 外卖 -->
-<section class="section" id="waimai">
-  <div class="section-header"><div class="num">柒</div><h2>美团外卖运营方案</h2><div class="line"></div></div>
   <div class="card-grid">
     <div class="card">
-      <div class="card-title"><span class="icon">🏪</span> 门店装修</div>
+      <div class="card-title"><span class="icon">⭐</span> 评价管理SOP</div>
+      <div class="speech-box">
+        <span class="sp">💬 好评话术（结账时）：</span><br>
+        "哥/姐，今天这铁锅炖味道还中不？<br>
+        好吃的话麻烦在大众点评上写个好评呗，<br>
+        送您一份咱们自制的酸梅汤/玉米汁！"
+      </div>
       <ul>
-        <li><strong>店铺头像：</strong>铁锅炖成品特写+山野间Logo</li>
-        <li><strong>店铺头图：</strong>铁锅冒热气+山野环境</li>
-        <li><strong>满减活动：</strong>满100减15·满200减35·满300减60</li>
-        <li><strong>配送范围：</strong>塘沽城区3-5公里（含开发区）</li>
+        <li><strong>差评24h内必回复：</strong>"给您添麻烦了，下次来送您个凉菜赔罪"</li>
+        <li><strong>差评回复公式：</strong>道歉+解释+补偿方案+邀请再来</li>
+        <li><strong>优质评价筛选：</strong>优先邀请大桌客人+带图评价</li>
+        <li><strong>前50条评价决定初始评分，要确保好评率90%+</strong></li>
       </ul>
     </div>
     <div class="card">
-      <div class="card-title"><span class="icon">🍽️</span> 外卖菜单设计</div>
+      <div class="card-title"><span class="icon">🏆</span> 榜单冲刺计划</div>
       <ul>
-        <li><strong>单人午餐：</strong>铁锅炖单人套餐¥38（小份排骨+米饭+小菜）</li>
-        <li><strong>双人晚餐：</strong>铁锅炖双人餐¥88（炖菜+主食×2+凉菜）</li>
-        <li><strong>家庭套餐：</strong>3-4人餐¥168（炖大鹅+贴饼子×4+凉菜×2）</li>
-        <li><strong>下午茶：</strong>14-17点主食半价·炖菜8折</li>
+        <li><strong>第一目标：</strong>冲"塘沽东北菜热门榜TOP10"</li>
+        <li><strong>第二目标：</strong>冲"滨海新区铁锅炖人气榜"</li>
+        <li><strong>上榜公式：</strong>高核销 + 高评分 + 高收藏 + 高浏览量</li>
+        <li><strong>收藏打卡：</strong>每天至少30人收藏 = 7天冲榜</li>
+        <li><strong>浏览量：</strong>商户通投流+朋友转发引浏览</li>
       </ul>
     </div>
     <div class="card">
-      <div class="card-title"><span class="icon">⚡</span> 新店活动</div>
-      <ul>
-        <li>新店7天满减膨胀（满80减20）</li>
-        <li>首单立减8元</li>
-        <li>收藏店铺送¥3券</li>
-        <li>满3单送铁锅炖小份兑换券</li>
-      </ul>
-    </div>
-    <div class="card">
-      <div class="card-title"><span class="icon">🎁</span> 复购策略</div>
-      <ul>
-        <li>随单塞"山野感谢卡"扫码领¥5</li>
-        <li>好评回复送满减券</li>
-        <li>定时红包（晚17点推送）</li>
-        <li>包装：防洒设计+山野间贴纸（拍照发圈）</li>
-      </ul>
-    </div>
-  </div>
-  <div class="section-divider">🔥 ⟡ 🌲 ⟡ 🍖</div>
-</section>
-
-<!-- 8. 抖音 -->
-<section class="section" id="douyin">
-  <div class="section-header"><div class="num">捌</div><h2>抖音运营方案</h2><div class="line"></div></div>
-  <div class="card-grid">
-    <div class="card">
-      <div class="card-title"><span class="icon">🎬</span> 达人探店</div>
-      <ul>
-        <li><strong>开业期：</strong>邀请3-5位塘沽本地美食达人</li>
-        <li><strong>内容：</strong>铁锅炖冒热气+山野环境+大口吃肉</li>
-        <li><strong>预算：</strong>¥500-1,000/位（置换+佣金）</li>
-        <li><strong>目标：</strong>单条播放5万+·带团购链接</li>
-      </ul>
-    </div>
-    <div class="card">
-      <div class="card-title"><span class="icon">📱</span> 自营内容</div>
-      <ul>
-        <li><strong>账号定位：</strong>「山野间的铁锅」展现铁锅炖制作过程</li>
-        <li><strong>内容方向：</strong>铁锅开锅·炖煮过程·客人吃相·包间环境</li>
-        <li><strong>频率：</strong>每周2-3条·15-30秒竖屏</li>
-        <li><strong>话题标签：</strong>#塘沽美食 #铁锅炖 #天津美食</li>
-      </ul>
-    </div>
-    <div class="card full">
-      <div class="hl-box">
-        <strong>🎯 抖音运营核心：</strong><br>
-        ① 开业前3天集中达人探店，制造热度<br>
-        ② 团购链接与美团同价，区别化套餐（抖音专属加赠小菜）<br>
-        ③ 内容聚焦"铁锅咕嘟咕嘟冒热气"——最能激发食欲的画面<br>
-        ④ 店铺POI地址完善·引导到店核销
+      <div class="card-title"><span class="icon">📷</span> 优质评价模板</div>
+      <div class="speech-box">
+        ⭐⭐⭐⭐⭐ 「真·山野间铁锅炖」<br>
+        环境：一进门就被山野风装修惊艳到了~<br>
+        味道：铁锅炖大鹅绝了！肉烂入味，贴饼子金黄焦脆<br>
+        服务：东北大姐特别热情<br>
+        推荐：大鹅锅必点！人均¥80撑到扶墙出
       </div>
     </div>
+    <div class="card">
+      <div class="card-title"><span class="icon">📊</span> 商户通投放指南</div>
+      <ul>
+        <li><strong>定向：</strong>塘沽区+开发区·3-5公里范围</li>
+        <li><strong>人群：</strong>25-50岁·餐饮美食兴趣·家庭/聚餐标签</li>
+        <li><strong>时段：</strong>午10:00-11:30（午市决策）+16:30-17:30（晚市决策）</li>
+        <li><strong>预算：</strong>引爆期¥80-100/天·稳定期¥40-60/天</li>
+        <li><strong>素材：</strong>铁锅炖冒热气动图→点开率高40%</li>
+      </ul>
+    </div>
   </div>
   <div class="section-divider">🔥 ⟡ 🌲 ⟡ 🍖</div>
 </section>
 
-<!-- 9. 智能收银 -->
+<!-- ===== 6. 外卖 ===== -->
+<section class="section" id="waimai">
+  <div class="section-header">
+    <div class="num">陆</div>
+    <h2>美团外卖运营策略</h2>
+    <div class="line"></div>
+  </div>
+  <div class="card-grid">
+    <div class="card full">
+      <div class="table-wrap">
+      <table>
+        <tr><th>维度</th><th>策略</th><th>执行细节</th></tr>
+        <tr>
+          <td><strong>📱 门店装修</strong></td>
+          <td>铁锅炖成品实拍做头图·暖色调</td>
+          <td>logo用"山野间"毛笔字+铁锅icon</td>
+        </tr>
+        <tr>
+          <td><strong>💰 满减活动</strong></td>
+          <td>新店7天满减膨胀</td>
+          <td>满80减15 · 满150减30 · 满200减45</td>
+        </tr>
+        <tr>
+          <td><strong>🍽️ 菜品结构</strong></td>
+          <td>单人-双人-家庭全覆盖</td>
+          <td>单人¥38 · 双人¥88 · 家庭3-4人¥168</td>
+        </tr>
+        <tr>
+          <td><strong>⚡ 配送范围</strong></td>
+          <td>覆盖塘沽城区3-5公里</td>
+          <td>杭州道/工农村/新港/开发区部分</td>
+        </tr>
+        <tr>
+          <td><strong>📦 包装升级</strong></td>
+          <td>防洒包装+"山野间"品牌贴纸</td>
+          <td>铁锅炖专用密封罐+加热说明卡</td>
+        </tr>
+        <tr>
+          <td><strong>🔄 复购策略</strong></td>
+          <td>外卖随单塞感谢卡+收藏送券</td>
+          <td>"山野感谢卡"扫码领¥5·收藏店铺送¥3券</td>
+        </tr>
+        <tr>
+          <td><strong>📞 差评处理</strong></td>
+          <td>24h内回复+送券补偿</td>
+          <td>漏送/延迟→退款+送券·味道→联系改好评</td>
+        </tr>
+      </table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="icon">🕐</span> 时段活动</div>
+      <ul>
+        <li><strong>午市（10:00-14:00）</strong>打工人单人餐¥38</li>
+        <li><strong>下午茶（14:00-17:00）</strong>主食半价+满30减8</li>
+        <li><strong>晚市（17:00-21:00）</strong>家庭套餐优先展示</li>
+        <li><strong>夜宵（21:00-23:00）</strong>铁锅炖小份+啤酒套餐</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="icon">🚀</span> 新店7天冲量</div>
+      <ul>
+        <li>D1-3：满减最大（满80减20），快速出单</li>
+        <li>D4-5：满减回调至满80减15，开始有利润</li>
+        <li>D6-7：稳定满减+收藏送券，养成用户习惯</li>
+        <li>每天关注"商圈排名"变化，及时调整</li>
+      </ul>
+    </div>
+  </div>
+  <div class="section-divider">🔥 ⟡ 🌲 ⟡ 🍖</div>
+</section>
+
+<!-- ===== 7. 抖音 ===== -->
+<section class="section" id="douyin">
+  <div class="section-header">
+    <div class="num">柒</div>
+    <h2>抖音运营策略</h2>
+    <div class="line"></div>
+  </div>
+  <div class="card-grid">
+    <div class="card full">
+      <div class="card-title"><span class="icon">🎬</span> 内容规划</div>
+      <div class="table-wrap">
+      <table>
+        <tr><th>内容类型</th><th>拍摄重点</th><th>投放建议</th></tr>
+        <tr><td><strong>🔥 铁锅"开锅"瞬间</strong></td><td>揭开锅盖·热气腾腾+香味溢出·15秒</td><td>自然流量·必出爆款</td></tr>
+        <tr><td><strong>🌲 环境探店</strong></td><td>山野风装修+包间展示+整体氛围·30秒</td><td>信息流投放</td></tr>
+        <tr><td><strong>🍖 食材展示</strong></td><td>大鹅/排骨/鱼头原材料+下锅过程·15秒</td><td>自然流量</td></tr>
+        <tr><td><strong>🥟 贴饼子特写</strong></td><td>玉米面贴饼子过程+金黄出锅·10秒</td><td>自然流量</td></tr>
+        <tr><td><strong>👨‍🍳 老板故事</strong></td><td>老板讲述开山野间的初心·60秒</td><td>品牌建设</td></tr>
+      </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">👥</span> 达人探店计划</div>
+      <div class="persona-box">
+        <div class="p-title">🎯 达人筛选标准：</div>
+        <div class="p-desc">塘沽/滨海新区本地美食号 · 粉丝1-10万 · 内容含铁锅炖/东北菜 · 互动率>5%</div>
+      </div>
+      <ul>
+        <li><strong>第一批（开业前3天）：</strong>3-5位本地达人试吃+发视频·预算¥2,000-3,000</li>
+        <li><strong>第二批（开业后第2周）：</strong>2-3位带货达人·带团购套餐链接·预算¥1,500-2,000</li>
+        <li><strong>合作方式：</strong>免单+车马费·高质量达人另谈</li>
+        <li><strong>内容要求：</strong>必须拍"铁锅开锅"瞬间·带定位+门店名</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="icon">📱</span> 老板自运营</div>
+      <ul>
+        <li>老板/老板娘每天发1条手机拍摄日常</li>
+        <li>内容简单：备菜→炖煮→出锅→顾客吃嗨了</li>
+        <li>挂门店定位+团购链接</li>
+        <li>标题带"塘沽美食""铁锅炖""东北菜"标签</li>
+        <li>互动率高的小视频投放DOU+（¥100/条测试）</li>
+      </ul>
+    </div>
+  </div>
+  <div class="section-divider">🔥 ⟡ 🌲 ⟡ 🍖</div>
+</section>
+
+<!-- ===== 8. POS ===== -->
 <section class="section" id="pos">
-  <div class="section-header"><div class="num">玖</div><h2>美团智能版收银系统</h2><div class="line"></div></div>
+  <div class="section-header">
+    <div class="num">捌</div>
+    <h2>美团智能版收银系统</h2>
+    <div class="line"></div>
+  </div>
   <div class="card-grid">
     <div class="card full">
       <div class="feat-grid">
-        <div class="feat-item"><div class="icon">🔗</div><div class="title">团购自动核销</div><div class="desc">到店扫码→自动核销→同步后厨打印→不用手动输</div></div>
-        <div class="feat-item"><div class="icon">🛵</div><div class="title">外卖自动接单</div><div class="desc">美团外卖订单自动接·出票·效率提升30%</div></div>
-        <div class="feat-item"><div class="icon">📱</div><div class="title">扫码点餐</div><div class="desc">入座扫码点菜·后厨同步·170㎡省1-2个服务员</div></div>
-        <div class="feat-item"><div class="icon">🎟️</div><div class="title">电子会员卡</div><div class="desc">扫码即开卡·储值优惠·消费积分·生日福利·自动识别</div></div>
-        <div class="feat-item"><div class="icon">📢</div><div class="title">智能优惠券</div><div class="desc">新客立减·复购满减·沉睡唤醒·生日送券·自动推送</div></div>
-        <div class="feat-item"><div class="icon">📈</div><div class="title">经营分析报表</div><div class="desc">日周月营收·热销排行·翻台率·坪效·菜品毛利·会员分析</div></div>
-        <div class="feat-item"><div class="icon">🏠</div><div class="title">远程管理</div><div class="desc">美团管家App·手机看营收·发活动·管会员·随时掌握</div></div>
-        <div class="feat-item"><div class="icon">📊</div><div class="title">进销存管理</div><div class="desc">估清设置·食材库存预警·成本管控·减少浪费</div></div>
+        <div class="feat-item"><div class="icon">🔗</div><div class="title">团购核销</div><div class="desc">顾客到店扫码·系统自动核销·同步后厨打印</div></div>
+        <div class="feat-item"><div class="icon">🛵</div><div class="title">外卖自动接单</div><div class="desc">订单自动接单·后厨出票·效率提升30%</div></div>
+        <div class="feat-item"><div class="icon">📱</div><div class="title">扫码点餐</div><div class="desc">入座扫码点菜·后厨同步·省1-2个服务员</div></div>
+        <div class="feat-item"><div class="icon">🎟️</div><div class="title">电子会员卡</div><div class="desc">扫码即开卡·储值优惠·消费积分·生日福利</div></div>
+        <div class="feat-item"><div class="icon">📢</div><div class="title">优惠券体系</div><div class="desc">新客立减·复购满减·沉睡唤醒·智能推送</div></div>
+        <div class="feat-item"><div class="icon">📈</div><div class="title">经营报表</div><div class="desc">日/周/月营收·热销排行·翻台率·会员分析</div></div>
+        <div class="feat-item"><div class="icon">🏠</div><div class="title">远程管理</div><div class="desc">美团管家App·手机看营收·发活动·管会员</div></div>
+        <div class="feat-item"><div class="icon">📊</div><div class="title">进销存管理</div><div class="desc">估清设置·食材库存·成本管控·减少浪费</div></div>
       </div>
       <div class="hl-box">
-        <strong>⚡ 170㎡铁锅炖门店收银价值测算：</strong><br>
-        · <strong>省人：</strong>扫码点餐+团购核销自动→省1-2名服务员→月省¥7,000-9,000<br>
-        · <strong>提效：</strong>外卖自动接单+后厨自动打印→高峰期多接20%订单<br>
-        · <strong>增收：</strong>会员营销+智能复购→次月复购率提升15-20%<br>
-        · <strong>决策：</strong>报表分析→优化菜品结构·淘汰低毛利菜品·聚焦爆品
+        <strong>⚡ 170㎡门店智能收银价值测算：</strong><br>
+        · <strong>省人：</strong>扫码点餐+团购核销自动 → 省1-2个服务员 → 月省¥7,000-9,000<br>
+        · <strong>提效：</strong>外卖自动接单+后厨出票 → 高峰期多接20%订单<br>
+        · <strong>增收：</strong>会员营销+智能复购 → 次月复购率提升15-20%<br>
+        · <strong>管理：</strong>手机看报表+远程管店 → 老板不在店也能掌控一切
       </div>
     </div>
   </div>
   <div class="section-divider">🔥 ⟡ 🌲 ⟡ 🍖</div>
 </section>
 
-<!-- 10. 私域复购 -->
+<!-- ===== 9. 开业活动 ===== -->
+<section class="section" id="opening">
+  <div class="section-header">
+    <div class="num">玖</div>
+    <h2>开业引爆日历</h2>
+    <div class="line"></div>
+  </div>
+  <div class="card-grid">
+    <div class="card full">
+      <div style="text-align:center;padding:0 0 12px;font-size:0.75rem;color:var(--textlight)">
+        📍 塘沽杭州道 · 🕐 每日活动时间：午11:00-14:00 · 晚17:00-21:00
+      </div>
+      <div class="table-wrap">
+      <table>
+        <tr><th>时间</th><th>活动主题</th><th>具体玩法</th><th>当天目标</th></tr>
+        <tr>
+          <td><strong>🎪 D-14~D0</strong></td>
+          <td>围挡蓄水期</td>
+          <td>
+            · 围挡放效果图+二维码"扫码进群开业领¥68套餐"<br>
+            · 周边500米派发DM单·含开业优惠券<br>
+            · 员工朋友圈预热·每天发装修进度+铁锅炖剧透
+          </td>
+          <td>社群蓄水200人+</td>
+        </tr>
+        <tr>
+          <td><strong>🎉 D1</strong></td>
+          <td>🔥 正式开业·半价日</td>
+          <td>
+            · 全部铁锅炖5折！仅1天！限量100份<br>
+            · 门口放花篮+红地毯+气球拱门<br>
+            · 抖音3位达人同步发探店视频<br>
+            · 前50名到店送自制酸梅汤
+          </td>
+          <td>全天满座<br>团购核销50+</td>
+        </tr>
+        <tr>
+          <td><strong>🎉 D2-D3</strong></td>
+          <td>🍖 大鹅特惠日</td>
+          <td>
+            · 铁锅炖大鹅6.8折（原价128→¥88）<br>
+            · 点大鹅锅送贴饼子1份<br>
+            · 大众点评引导好评（送饮品）
+          </td>
+          <td>大鹅锅卖出50+<br>好评10+条</td>
+        </tr>
+        <tr>
+          <td><strong>🎉 D4-D5</strong></td>
+          <td>🥟 贴饼子免费加</td>
+          <td>
+            · 点任意铁锅炖送贴饼子（原价¥12）<br>
+            · 朋友圈集赞30个送凉菜1份<br>
+            · 美团外卖上线冲量活动
+          </td>
+          <td>外卖开单30+</td>
+        </tr>
+        <tr>
+          <td><strong>🎉 D6-D7</strong></td>
+          <td>🍺 啤酒畅饮夜</td>
+          <td>
+            · 点铁锅炖送啤酒（每锅送2瓶）<br>
+            · 晚上21点后啤酒买1送1<br>
+            · 抖音直播"铁锅炖+啤酒"吃播
+          </td>
+          <td>晚间翻台+1<br>社群拉新100+</td>
+        </tr>
+        <tr>
+          <td><strong>🎉 D8-D14</strong></td>
+          <td>🔥 热度持续周</td>
+          <td>
+            · 每天1个限量秒杀（¥38尝鲜铁锅炖单人餐·限10份）<br>
+            · 持续引导好评+收藏+打卡<br>
+            · 商户通投放加大·冲刺热门榜<br>
+            · 第2批达人探店上线
+          </td>
+          <td>评分冲到4.0+<br>收藏500+</td>
+        </tr>
+        <tr>
+          <td><strong>🌟 D15-D30</strong></td>
+          <td>🏆 冲榜期</td>
+          <td>
+            · 上线代金券+储值+会员体系<br>
+            · 每周三会员日88折<br>
+            · 社群固定每周活动（抽奖·新品试吃）<br>
+            · 数据分析调整运营策略
+          </td>
+          <td>冲TOP5<br>首月营收¥12-15万</td>
+        </tr>
+      </table>
+      </div>
+    </div>
+  </div>
+  <div class="section-divider">🔥 ⟡ 🌲 ⟡ 🍖</div>
+</section>
+
+<!-- ===== 10. 私域 ===== -->
 <section class="section" id="private">
-  <div class="section-header"><div class="num">拾</div><h2>私域运营与复购体系</h2><div class="line"></div></div>
+  <div class="section-header">
+    <div class="num">拾</div>
+    <h2>私域运营与复购体系</h2>
+    <div class="line"></div>
+  </div>
   <div class="card-grid">
     <div class="card">
-      <div class="card-title"><span class="icon">👥</span> 社群运营</div>
+      <div class="card-title"><span class="icon">👥</span> 社群运营SOP</div>
+      <div class="speech-box">
+        <span class="sp">📱 入群话术（结账时）：</span><br>
+        "姐，扫码进咱家『山野福利群』，<br>
+        进群就送¥10代金券，下周还有会员日88折！"
+      </div>
       <ul>
-        <li>每桌引导"山野福利群"→入群送¥10代金券</li>
-        <li>每周活动：周三五折·新菜试吃·群内抽奖</li>
-        <li>内容：铁锅炖制作花絮·山野环境·福利预告</li>
-        <li><strong>目标：</strong>首月500人·活跃率30%+</li>
+        <li><strong>每周一：</strong>本周活动预告（如"周三88折"）</li>
+        <li><strong>每周三：</strong>会员日专属优惠链接</li>
+        <li><strong>每周五：</strong>周末预订提醒+限量秒杀</li>
+        <li><strong>不定期：</strong>新品试吃官招募·聊天抽奖</li>
+        <li><strong>目标：</strong>首月500人·次月1000人</li>
       </ul>
     </div>
     <div class="card">
-      <div class="card-title"><span class="icon">🏆</span> 储值锁客</div>
-      <ul>
-        <li>充300送50 → 锁3次消费</li>
-        <li>充500送100 → 锁5次消费</li>
-        <li>充1,000送260 → 锁10次消费</li>
-        <li><strong>目标：</strong>首月储值50单·沉淀金额¥3万+</li>
-      </ul>
+      <div class="card-title"><span class="icon">🏧</span> 储值锁客</div>
+      <div class="table-wrap">
+      <table>
+        <tr><th>档位</th><th>赠送</th><th>相当于</th></tr>
+        <tr><td>💳 充300</td><td>送50</td><td>≈8.3折</td></tr>
+        <tr><td>💳 充500</td><td>送100</td><td>≈8.3折</td></tr>
+        <tr><td>💳 充1000</td><td>送260</td><td>≈7.9折</td></tr>
+      </table>
+      </div>
     </div>
     <div class="card">
       <div class="card-title"><span class="icon">🎟️</span> 次卡/集章</div>
       <ul>
-        <li>🔥 铁锅炖大鹅次卡：¥388吃3次（省¥56）</li>
-        <li>🔥 双人餐次卡：¥188吃4次（省¥30）</li>
-        <li>📇 集章卡：消费1次盖1章·满8章换大鹅小份</li>
-        <li><strong>有效期：</strong>次卡6个月·集章卡不限</li>
+        <li><strong>¥388 大鹅次卡：</strong>吃3次大鹅锅（省¥96）</li>
+        <li><strong>¥188 双人次卡：</strong>吃4次双人餐（省¥84）</li>
+        <li><strong>集章卡：</strong>吃5次送1次铁锅炖鸡小份</li>
+        <li><strong>生日福利：</strong>生日月到店免费送炖菜1份</li>
       </ul>
     </div>
     <div class="card">
-      <div class="card-title"><span class="icon">🎂</span> 复购钩子</div>
-      <ul>
-        <li>生日月：免费送铁锅炖小份（收银自动识别）</li>
-        <li>每月8号：会员日全场88折</li>
-        <li>消费满5次：升级金卡会员·享专属折扣</li>
-        <li>沉睡唤醒：30天未到店→推送¥20唤醒券</li>
-      </ul>
+      <div class="card-title"><span class="icon">🎯</span> 会员体系</div>
+      <table>
+        <tr><th>等级</th><th>开卡条件</th><th>核心权益</th></tr>
+        <tr><td>🌱 山野客</td><td>扫码免费开卡</td><td>送¥5券·积分·生日福利</td></tr>
+        <tr><td>🍖 山野食客</td><td>消费¥300</td><td>会员日9折·专属优惠券</td></tr>
+        <tr><td>🏔️ 山野尊客</td><td>消费¥800或储值</td><td>全场88折·新菜品鉴·生日送套餐</td></tr>
+      </table>
     </div>
   </div>
   <div class="section-divider">🔥 ⟡ 🌲 ⟡ 🍖</div>
 </section>
 
-<!-- 11. 活动日历 -->
-<section class="section" id="calendar">
-  <div class="section-header"><div class="num">拾壹</div><h2>开业活动日历</h2><div class="line"></div></div>
-  <div class="card-grid">
-    <div class="card full">
-      <div class="timeline">
-        <div class="tl-item"><div class="day">D-20~D-7</div><div>筹备期：美团入驻审核·收银安装调试·菜单拍摄·环境拍摄·围挡设计制作·DM单设计印刷·员工培训（话术+系统操作）·达人邀约排期</div></div>
-        <div class="tl-item"><div class="day">D-6~D-1</div><div>预热期：围挡上画·DM单周边商铺发放·美团页面装修完成·点评门店上线·达人种草视频发布·社群开始拉人</div></div>
-        <div class="tl-item"><div class="day">D1-D3</div><div><strong>🔥 开业爆三天：</strong>全场铁锅炖8折·¥68尝鲜套餐限量抢·到店送自制酸梅汤·达人探店集中发布</div></div>
-        <div class="tl-item"><div class="day">D4-D7</div><div><strong>📸 好评冲量周：</strong>收藏打卡送玉米汁·好评送小菜·每天引导10条好评</div></div>
-        <div class="tl-item"><div class="day">D8-D14</div><div><strong>📈 团购冲量期：</strong>美团新店扶持流量·商户通开通·储值活动上线·社群每周活动</div></div>
-        <div class="tl-item"><div class="day">D15-D30</div><div><strong>🌟 稳定运营期：</strong>数据分析调优·复购活动启动·差评复盘·次卡/集章卡上线·包间命名落地</div></div>
-        <div class="tl-item"><div class="day">D31-D60</div><div><strong>🌲 品牌沉淀期：</strong>口碑沉淀·榜单冲刺·老客复购率提升·外卖优化·夏季新品规划</div></div>
-      </div>
-    </div>
-  </div>
-  <div class="section-divider">🔥 ⟡ 🌲 ⟡ 🍖</div>
-</section>
-
-<!-- 12. 员工话术 -->
-<section class="section" id="scripts">
-  <div class="section-header"><div class="num">拾贰</div><h2>员工服务话术</h2><div class="line"></div></div>
-  <div class="card-grid">
-    <div class="card">
-      <div class="card-title"><span class="icon">💬</span> 迎宾话术</div>
-      <div class="hl-box" style="margin:0">"哥/姐，欢迎来到<strong>山野间</strong>！咱们家是地道的<strong>铁锅炖</strong>，大鹅排骨全是现炖的，二楼还有包间，您几位咱们里边请～"</div>
-    </div>
-    <div class="card">
-      <div class="card-title"><span class="icon">💬</span> 点菜升单话术</div>
-      <div class="hl-box" style="margin:0">"哥/姐，您点的这个套餐太划算了！不过咱家招牌是<strong>铁锅炖大鹅</strong>，每桌必点的，+99块钱就能升级，来一份尝尝？"</div>
-    </div>
-    <div class="card">
-      <div class="card-title"><span class="icon">💬</span> 好评引导话术</div>
-      <div class="hl-box" style="margin:0"><strong>（合规版·禁止说"好评返现"）</strong><br>"哥/姐，您要是觉得好吃，麻烦在美团上给个好评，我们送您一份<strong>自制酸梅汤/玉米汁</strong>，您喝着解解腻～"</div>
-    </div>
-    <div class="card">
-      <div class="card-title"><span class="icon">💬</span> 加群/储值话术</div>
-      <div class="hl-box" style="margin:0">"哥/姐，加一下咱们<strong>山野福利群</strong>，每周都有会员专属优惠，今天加群还送您<strong>¥10代金券</strong>，下次来直接抵扣！"</div>
-    </div>
-  </div>
-  <div class="section-divider">🔥 ⟡ 🌲 ⟡ 🍖</div>
-</section>
-
-<!-- 13. 合规 -->
-<section class="section" id="compliance">
-  <div class="section-header"><div class="num">拾叁</div><h2>运营合规红线</h2><div class="line"></div></div>
-  <div class="card-grid">
-    <div class="card full">
-      <div class="feat-grid">
-        <div class="feat-item"><div class="icon">❌</div><div class="title">禁止好评返现</div><div class="desc">不能说"写好评送钱/返现"，只能说"喜欢的话麻烦给个好评，送您一份饮品"</div></div>
-        <div class="feat-item"><div class="icon">✅</div><div class="title">只能说收藏打卡</div><div class="desc">"收藏打卡送XX"合规；"写好评送XX/好评返XX"违规</div></div>
-        <div class="feat-item"><div class="icon">❌</div><div class="title">禁止刷单</div><div class="desc">禁止虚假交易·虚假评价·禁止使用第三方刷单服务</div></div>
-        <div class="feat-item"><div class="icon">✅</div><div class="title">真实评价引导</div><div class="desc">自然引导满意顾客写评价·禁止组织造假评价·禁止恶意差评竞品</div></div>
-        <div class="feat-item"><div class="icon">⚠️</div><div class="title">食品安全</div><div class="desc">铁锅炖必须全熟出品·食材规范储存·明厨亮灶·每日台账</div></div>
-        <div class="feat-item"><div class="icon">⚠️</div><div class="title">消防/排污</div><div class="desc">明火操作区消防合规·排烟系统达标·燃气安全每日检查</div></div>
-      </div>
-    </div>
-  </div>
-  <div class="section-divider">🔥 ⟡ 🌲 ⟡ 🍖</div>
-</section>
-
-<!-- 14. 预算 -->
-<section class="section" id="budget">
-  <div class="section-header"><div class="num">拾肆</div><h2>首月预算规划</h2><div class="line"></div></div>
-  <div class="card-grid">
-    <div class="card full">
-      <div class="budget-list">
-        <div class="budget-row"><span>🏗️ 围挡/门头/开业物料</span><span>¥1,000-1,500</span></div>
-        <div class="budget-row"><span>📄 开业DM单设计印刷+派发</span><span>¥500-800</span></div>
-        <div class="budget-row"><span>📸 菜品/环境专业拍摄</span><span>¥500-1,000</span></div>
-        <div class="budget-row"><span>🔥 美团团购/商户通投放</span><span>¥2,000-3,000</span></div>
-        <div class="budget-row"><span>🎬 抖音达人探店（3-5位）</span><span>¥2,000-3,000</span></div>
-        <div class="budget-row"><span>📍 地推/试吃活动</span><span>¥800-1,200</span></div>
-        <div class="budget-row"><span>⚡ 美团智能版收银系统</span><span>咨询业务顾问</span></div>
-        <div class="budget-row"><span>💵 开业活动物料（赠品+饮品）</span><span>¥1,000-2,000</span></div>
-        <div class="budget-row"><span>🎁 储值/集章/社群物料</span><span>¥300-500</span></div>
-        <div class="budget-row total"><span>🎯 首月运营总预算</span><span>约¥8,100-13,000</span></div>
-      </div>
-      <div class="hl-box">
-        <strong>📈 首月营收测算（170㎡·3包间·人均¥80）：</strong><br>
-        · <strong>堂食：</strong>工作日30-50客·周末80-120客·加权日均55客×¥80=<strong>¥4,400/天</strong><br>
-        · <strong>外卖：</strong>日均15-25单×均价¥60=¥900-1,500/天（扣佣后¥720-1,200）<br>
-        · <strong>包间：</strong>3包间×日均1.5翻×人均¥100=¥450<br>
-        · <strong>日均总营收：</strong>¥4,400+¥960+¥450 = <strong>¥5,810/天</strong><br>
-        · <strong>首月目标：</strong>¥5,810×30 = <strong>¥17.4万</strong>（首月保守目标¥12-15万）<br>
-        · <strong>翻台率：</strong>堂食区约60位×日均1.0-1.5翻 = 60-90客/天 · 符合预期
-      </div>
-    </div>
-  </div>
-  <div class="section-divider">🔥 ⟡ 🌲 ⟡ 🍖</div>
-</section>
-
-<!-- 15. KPI -->
+<!-- ===== 11. KPI ===== -->
 <section class="section" id="kpi">
-  <div class="section-header"><div class="num">拾伍</div><h2>KPI目标与考核</h2><div class="line"></div></div>
+  <div class="section-header">
+    <div class="num">拾壹</div>
+    <h2>KPI目标与预算</h2>
+    <div class="line"></div>
+  </div>
   <div class="card-grid">
     <div class="card full">
       <div class="kpi-grid">
@@ -651,69 +1044,154 @@ li{font-size:0.82rem;margin-bottom:4px;color:var(--text)}
         <div class="kpi-item"><div class="num">65%+</div><div class="label">✅ 核销率</div></div>
         <div class="kpi-item"><div class="num">100+单</div><div class="label">🛵 外卖月销</div></div>
         <div class="kpi-item"><div class="num">500人</div><div class="label">👥 社群</div></div>
-        <div class="kpi-item"><div class="num">200+</div><div class="label">💳 会员开卡</div></div>
-        <div class="kpi-item"><div class="num">50单</div><div class="label">🏆 储值单数</div></div>
-        <div class="kpi-item"><div class="num">50+条</div><div class="label">📝 首月评价</div></div>
-        <div class="kpi-item"><div class="num">¥15万</div><div class="label">💰 首月营收</div></div>
+        <div class="kpi-item"><div class="num">¥12-15万</div><div class="label">💰 首月营收</div></div>
       </div>
     </div>
+
+    <div class="card full">
+      <div class="card-title"><span class="icon">📋</span> 三阶段执行节奏</div>
+      <div class="phase-list">
+        <div class="phase-row p1">
+          <div class="tag">📋 筹备期</div>
+          <div class="desc">
+            <strong>D-20~D0 · 预算：¥2,000-3,000</strong><br>
+            · 美团入驻+团购/外卖/收银系统全部安装调试<br>
+            · 围挡设计+制作（含蓄水二维码）<br>
+            · DM单设计印刷3,000份·覆盖周边1公里<br>
+            · 员工培训：服务流程+好评引导+美团系统操作<br>
+            · 菜品拍摄+视频录制+门店装修上线<br>
+            · 抖音账号搭建+发布预热内容<br>
+            <sm>关键交付物：围挡/ DM单 / 培训手册 / 菜品图30张 / 视频5条</sm>
+          </div>
+        </div>
+        <div class="phase-row p2">
+          <div class="tag">🔥 引爆期</div>
+          <div class="desc">
+            <strong>D1-D14 · 预算：¥5,000-8,000</strong><br>
+            · D1 开业半价日·限量100份·全天满座<br>
+            · D2-D3 大鹅特惠6.8折·冲好评（至少20条）<br>
+            · D4-D5 贴饼子免费送·外卖上线冲量<br>
+            · D6-D7 啤酒畅饮夜·抖音直播<br>
+            · D8-D14 秒杀周+商户通投流+达人探店视频上线<br>
+            <sm>关键指标：团购核销150+ / 评分4.0+ / 社群300+人</sm>
+          </div>
+        </div>
+        <div class="phase-row p3">
+          <div class="tag">🌟 稳定期</div>
+          <div class="desc">
+            <strong>D15-D60 · 预算：¥3,000-5,000/月</strong><br>
+            · 美团商户通日均¥50-60定向投放<br>
+            · 会员体系正式运营（储值+次卡+会员日）<br>
+            · 社群每周固定活动+每周3条朋友圈<br>
+            · 每月2次新品更新+1次降价活动<br>
+            · 每月运营数据复盘优化<br>
+            <sm>关键指标：评分4.3+ / 团购月销300+ / 社群500+人</sm>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card full">
+      <div class="card-title"><span class="icon">💰</span> 首月预算明细</div>
+      <div class="budget-list">
+        <div class="budget-row"><span>🎨 围挡/门头/开业物料</span><span>¥1,000-1,500</span></div>
+        <div class="budget-row sub">— 含围挡设计制作·开业花篮·气球拱门·横幅</div>
+        <div class="budget-row"><span>📄 DM单设计印刷3000份</span><span>¥500-800</span></div>
+        <div class="budget-row sub">— 含设计费+印刷费+派发人工</div>
+        <div class="budget-row"><span>🔥 美团团购/商户通投流</span><span>¥2,000-3,000</span></div>
+        <div class="budget-row sub">— 引爆期¥100/天×14天+稳定期¥50/天×16天</div>
+        <div class="budget-row"><span>🎬 抖音达人探店（3-5位）</span><span>¥2,000-3,000</span></div>
+        <div class="budget-row sub">— 免单+车马费·或资源置换</div>
+        <div class="budget-row"><span>📸 菜品拍摄+视频录制</span><span>¥500-800</span></div>
+        <div class="budget-row sub">— 专业摄影师半日+后期修图</div>
+        <div class="budget-row"><span>🎁 开业赠品/小礼品</span><span>¥300-500</span></div>
+        <div class="budget-row sub">— 酸梅汤原料+小礼品成本</div>
+        <div class="budget-row"><span>⚡ 美团智能收银系统</span><span>咨询业务顾问</span></div>
+        <div class="budget-row total"><span>🎯 首月总预算</span><span>约¥6,300-9,600</span></div>
+      </div>
+    </div>
+
     <div class="card full">
       <div class="hl-box">
-        <strong>🎯 运营节奏总结：</strong><br>
-        <strong>筹备期（D-20~D0）</strong> → 美团入驻·收银装·物料·培训<br>
-        <strong>引爆期（D1-D14）</strong> → 开业活动·团购冲量·达人探店·好评破50<br>
-        <strong>稳定期（D15-D60）</strong> → 投流优化·复购体系·数据分析·榜单冲刺<br>
-        <strong>品牌期（D61+）</strong> → 成为"塘沽铁锅炖第一名"·口碑裂变·复制扩张
+        <strong>📈 营收测算（170㎡·人均¥80·含3包间·56位）：</strong><br>
+        · <strong>堂食：</strong>日均50-80客 × 人均¥80 = ¥4,000-6,400/天<br>
+        · <strong>外卖：</strong>日均15-25单 × 均价¥60 = ¥900-1,500/天（扣佣后实收¥720-1,200）<br>
+        · <strong>团购核销：</strong>日均10-15单 × 均价¥80 = ¥800-1,200/天<br>
+        · <strong>日均总营收：¥5,520-9,100 · 首月目标：¥16.5-27.3万</strong><br>
+        · <strong>保守目标：¥12-15万</strong>（前两周爬坡期）<br>
+        · 新店首月目标：盈亏平衡 · 次月起实现盈利
+      </div>
+    </div>
+
+    <div class="card full">
+      <div class="card-title"><span class="icon">💡</span> BD沟通要点总结</div>
+      <div class="persona-box">
+        <div class="p-title">🎯 向老板推销的核心卖点（三句话说服）</div>
+        <div class="p-desc">
+          <strong>第一句：</strong>"咱们170㎡带3个包间，想做塘沽最火的铁锅炖，光靠味道不够，得用美团全平台帮您把线上流量接进来。"<br>
+          <strong>第二句：</strong>"美团智能收银系统帮您自动核销团购、自动接外卖、扫码点餐省人工，一个月光人工就省七八千。"<br>
+          <strong>第三句：</strong>"开业方案我都帮您做好了，从团购上线到抖音探店到私域社群，一整套落地，您只管把菜做好就行。"
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- ===== FOOTER ===== -->
 <footer class="footer">
   <div class="motto">🔥 山野间 · 铁锅炖 🌲</div>
   <div style="font-size:0.85rem;color:var(--snow);opacity:0.8;margin-bottom:4px">
     粗犷烟火 · 山野意境 · 一锅炖尽人间味
   </div>
-  <div style="padding:10px 0;display:flex;flex-wrap:wrap;gap:6px;justify-content:center;font-size:0.7rem;color:var(--wood);opacity:0.7">
-    <span>📋 项目全景</span><span>📊 市场分析</span><span>🏷️ 品牌定位</span><span>🍖 产品定价</span><span>🔥 美团运营</span>
-    <span>⭐ 点评运营</span><span>🛵 外卖运营</span><span>🎬 抖音运营</span><span>⚡ 智能收银</span>
-    <span>💬 私域复购</span><span>📅 活动日历</span><span>💬 服务话术</span><span>⚖️ 合规红线</span>
-    <span>💰 预算规划</span><span>📊 KPI考核</span>
+  <div style="margin-top:10px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center;font-size:0.7rem;color:var(--wood);opacity:0.5">
+    <span>美团点评</span><span>·</span><span>美团外卖</span><span>·</span><span>抖音运营</span><span>·</span><span>智能收银</span><span>·</span><span>私域社群</span>
   </div>
   <div class="meta">
-    方案生成：2026-05-20 · 山野间铁锅炖 · 塘沽杭州道<br>美团全平台 · 智能收银 · 15大模块全链路运营
+    方案生成：2026-05-20 · 山野间铁锅炖 · 塘沽杭州道<br>
+    美团全平台运营 · 智能收银赋能 · 一站式开业方案
   </div>
 </footer>
 
 <script>
 // Fire particles
-const fc = document.getElementById('fire-particles');
-for(let i=0;i<30;i++){
-  const p=document.createElement('div');p.className='fire-particle';
-  p.style.left=Math.random()*100+'%';p.style.bottom=Math.random()*30+'%';
-  p.style.animationDuration=(2+Math.random()*4)+'s';p.style.animationDelay=(Math.random()*5)+'s';
-  p.style.width=(2+Math.random()*4)+'px';p.style.height=p.style.width;
-  const cl=['#CC4A20','#E8672A','#F4A030','#E8C060','#FF6B35'];
-  p.style.background=cl[Math.floor(Math.random()*cl.length)];fc.appendChild(p);
+const fireContainer = document.getElementById('fire-particles');
+for(let i = 0; i < 35; i++){
+  const p = document.createElement('div');
+  p.className = 'fire-particle';
+  p.style.left = Math.random() * 100 + '%';
+  p.style.bottom = Math.random() * 30 + '%';
+  p.style.animationDuration = (2 + Math.random() * 4) + 's';
+  p.style.animationDelay = (Math.random() * 5) + 's';
+  p.style.width = (2 + Math.random() * 5) + 'px';
+  p.style.height = p.style.width;
+  const colors = ['#CC4A20','#E8672A','#F4A030','#E8C060','#FF6B35'];
+  p.style.background = colors[Math.floor(Math.random() * colors.length)];
+  fireContainer.appendChild(p);
 }
-// Leaf particles
-const lc=document.getElementById('leaf-particles');
-const lvs=['🍃','🌿','☘️','🍂'];
-for(let i=0;i<12;i++){
-  const p=document.createElement('div');p.className='leaf-particle';
-  p.textContent=lvs[Math.floor(Math.random()*lvs.length)];
-  p.style.left=Math.random()*100+'%';p.style.top='-20px';
-  p.style.animationDuration=(8+Math.random()*12)+'s';p.style.animationDelay=(Math.random()*10)+'s';
-  p.style.fontSize=(10+Math.random()*10)+'px';lc.appendChild(p);
+const leafContainer = document.getElementById('leaf-particles');
+const leaves = ['🍃','🌿','☘️','🍂'];
+for(let i = 0; i < 15; i++){
+  const p = document.createElement('div');
+  p.className = 'leaf-particle';
+  p.textContent = leaves[Math.floor(Math.random() * leaves.length)];
+  p.style.left = Math.random() * 100 + '%';
+  p.style.top = '-20px';
+  p.style.animationDuration = (8 + Math.random() * 15) + 's';
+  p.style.animationDelay = (Math.random() * 12) + 's';
+  p.style.fontSize = (10 + Math.random() * 12) + 'px';
+  leafContainer.appendChild(p);
 }
-// Nav highlight
-const nis=document.querySelectorAll('.nav-item');
-const scs=document.querySelectorAll('.section');
-window.addEventListener('scroll',()=>{
-  let cur='';
-  scs.forEach(s=>{const t=s.offsetTop-120;if(window.scrollY>=t)cur=s.id});
-  nis.forEach(n=>n.classList.toggle('active',n.getAttribute('href')==='#'+cur));
+const navItems = document.querySelectorAll('.nav-item');
+const sections = document.querySelectorAll('.section');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    const top = s.offsetTop - 120;
+    if(window.scrollY >= top) current = s.id;
+  });
+  navItems.forEach(item => {
+    item.classList.toggle('active', item.getAttribute('href') === '#' + current);
+  });
 });
 </script>
 </body>
